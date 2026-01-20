@@ -143,11 +143,21 @@ input, textarea {
 .header {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
+    background-color: #5a2d0c;
+    color: #fff;
+    padding: 16px 12px;
+    transition: all 0.3s ease;
 }
 
 .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.header p {
+    font-size: 0.8rem;
+}
+
 }
 
 .btn-carrinho {
@@ -226,3 +236,42 @@ textarea {
         max-height: 260px;
     }
 }
+
+/* =========================
+   MOBILE – 2 PRODUTOS POR LINHA
+========================= */
+@media (max-width: 480px) {
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .card-produto {
+        padding: 10px;
+    }
+
+    .card-produto img {
+        max-height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card-produto h3 {
+        font-size: 0.9rem;
+    }
+
+    .card-produto p {
+        font-size: 0.75rem;
+    }
+
+    .preco {
+        font-size: 0.9rem;
+    }
+
+    .btn-adicionar {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
+
