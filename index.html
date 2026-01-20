@@ -82,22 +82,27 @@
     <!-- JS (vamos usar depois) -->
     <script src="js/carrinho.js"></script>
     <script>
-        const header = document.querySelector(".header");
+    (function () {
+        const headerEl = document.querySelector(".header");
+        if (!headerEl) return;
     
         window.addEventListener("scroll", () => {
             if (window.scrollY > 80) {
-                header.classList.add("shrink");
+                headerEl.classList.add("shrink");
             } else {
-                header.classList.remove("shrink");
+                headerEl.classList.remove("shrink");
             }
         });
+    })();
     </script>
+
 
 
 
 
 </body>
 </html>
+
 
 
 
