@@ -81,6 +81,28 @@
 
     <!-- JS (vamos usar depois) -->
     <script src="js/carrinho.js"></script>
+    <script>
+        let ultimoScroll = 0;
+        const header = document.querySelector(".header");
+    
+        window.addEventListener("scroll", () => {
+            const scrollAtual = window.scrollY;
+    
+            if (scrollAtual > ultimoScroll && scrollAtual > 60) {
+                // rolando pra baixo → encolhe
+                header.style.padding = "8px 12px";
+                header.querySelector("h1").style.fontSize = "1.1rem";
+            } else {
+                // rolando pra cima → volta
+                header.style.padding = "16px 12px";
+                header.querySelector("h1").style.fontSize = "1.4rem";
+            }
+    
+            ultimoScroll = scrollAtual;
+        });
+    </script>
+
 
 </body>
 </html>
+
