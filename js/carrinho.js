@@ -1,8 +1,10 @@
+// Inicialização do Carrinho
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 const botoesAdicionar = document.querySelectorAll(".btn-adicionar");
 const contador = document.getElementById("contador-carrinho");
 
+// Evento nos botões de compra
 botoesAdicionar.forEach(botao => {
     botao.addEventListener("click", () => {
         const id = botao.dataset.id;
@@ -24,6 +26,7 @@ function adicionarAoCarrinho(id, nome, preco) {
 
     salvarCarrinho();
     atualizarContador();
+    // Dica: Toast customizado fica mais profissional que o alert
     alert("Produto adicionado ao carrinho 🛒");
 }
 
@@ -37,4 +40,30 @@ function atualizarContador() {
     contador.innerText = totalItens;
 }
 
+// Inicializa o contador ao carregar a página
 atualizarContador();
+
+// --- EFEITO DO HEADER AO ROLAR ---
+let ultimoScroll = 0;
+const header = document.querySelector(".header");
+
+if (header) { // Verifica se o header existe para não dar erro
+    const tituloHeader = header.querySelector("h1");
+
+    window.addEventListener("scroll", () => {
+        const scrollAtual = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollAtual > ultimoScroll && scrollAtual > 60) {
+            // Rolando para baixo → Encolhe
+            header.style.padding = "8px 12px";
+            if (tituloHeader) tituloHeader.style.fontSize = "1.1rem";
+        } else {
+            // Rolando para cima → Volta ao normal
+            header.style.padding = "16px 12px";
+            if (tituloHeader) tituloHeader.style.fontSize = "1.4rem";
+        }
+        
+        // Atualiza a posição para a próxima comparação
+        ultimoScroll = scrollAtual <= 0 ? 0 : scrollAtual; 
+    }, { passive: true });
+}
