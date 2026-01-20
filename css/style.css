@@ -222,6 +222,16 @@ input, textarea {
     transition: opacity 0.2s ease, height 0.2s ease;
 }
 
-/* HEADER ENCOLHIDO*
+/* HEADER ENCOLHIDO */
+.header.shrink {
+    padding: 6px 12px;
+}
 
-
+/* ESCONDER TEXTO */
+.header.shrink h1,
+.header.shrink p {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
