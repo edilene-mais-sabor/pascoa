@@ -204,3 +204,24 @@ input, textarea {
     font-weight: bold;
     color: #5a2d0c;
 }
+
+/* HEADER NORMAL */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #5a2d0c;
+    color: #fff;
+    padding: 16px 12px;
+    transition: all 0.25s ease;
+}
+
+/* TÍTULO E TEXTO */
+.header h1,
+.header p {
+    transition: opacity 0.2s ease, height 0.2s ease;
+}
+
+/* HEADER ENCOLHIDO*
+
+
