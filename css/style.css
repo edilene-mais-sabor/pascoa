@@ -1,3 +1,6 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -10,72 +13,102 @@ body {
     color: #333;
 }
 
-/* HEADER */
+/* =========================
+   HEADER (FIXO E DINÂMICO)
+========================= */
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     text-align: center;
-    padding: 30px 20px;
     background-color: #5a2d0c;
     color: #fff;
+    padding: 16px 12px;
+    transition: all 0.3s ease;
 }
 
 .header h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
+    transition: font-size 0.3s ease;
 }
 
 .header p {
-    margin-top: 8px;
+    margin-top: 4px;
     font-weight: 300;
+    font-size: 0.8rem;
+}
+
+/* Classe controlada pelo seu JavaScript de Scroll */
+.header.shrink {
+    padding: 8px 12px;
+}
+.header.shrink h1 {
+    font-size: 1.1rem;
 }
 
 .btn-carrinho {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     background-color: #fff;
     color: #5a2d0c;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
-/* PRODUTOS */
+/* =========================
+   PRODUTOS (GRID)
+========================= */
 .produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    padding: 30px;
+    /* Padrão Mobile: 2 colunas iguais */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+    padding: 12px;
 }
 
 .card-produto {
     background: #fff;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-produto img {
     width: 100%;
-    border-radius: 12px;
+    height: 140px; /* Altura fixa para alinhar os cards */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .card-produto h3 {
-    margin: 12px 0 5px;
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
 }
 
 .card-produto p {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: #666;
+    margin-bottom: 5px;
 }
 
 .preco {
     display: block;
-    margin: 10px 0;
+    margin: 5px 0;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: #5a2d0c;
 }
 
+/* =========================
+   BOTÕES E INPUTS
+========================= */
 .btn-adicionar {
     background-color: #5a2d0c;
     color: #fff;
@@ -84,37 +117,7 @@ body {
     width: 100%;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 0.95rem;
-}
-
-.btn-adicionar:hover {
-    opacity: 0.9;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 20px;
     font-size: 0.85rem;
-    color: #777;
-}
-
-.quantidade {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-.quantidade button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 50%;
-    background: #5a2d0c;
-    color: #fff;
-    cursor: pointer;
 }
 
 .btn-remover {
@@ -128,150 +131,76 @@ body {
     cursor: pointer;
 }
 
+.quantidade {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.quantidade button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #5a2d0c;
+    color: #fff;
+    cursor: pointer;
+}
+
 input, textarea {
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-family: inherit;
+    width: 100%;
 }
 
 /* =========================
-   MOBILE FIRST
-========================= */
-
-/* HEADER */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background-color: #5a2d0c;
-    color: #fff;
-    padding: 16px 12px;
-    transition: all 0.3s ease;
-}
-
-.header h1 {
-    font-size: 1.4rem;
-}
-
-.header p {
-    font-size: 0.8rem;
-}
-
-}
-
-.btn-carrinho {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-}
-
-/* PRODUTOS MOBILE */
-.produtos {
-    padding: 15px;
-    gap: 20px;
-}
-
-.card-produto {
-    padding: 15px;
-}
-
-/* IMAGENS */
-.card-produto img {
-    max-height: 220px;
-    object-fit: cover;
-}
-
-/* BOTÕES */
-.btn-adicionar,
-.btn-remover {
-    font-size: 1rem;
-    padding: 12px;
-}
-
-/* QUANTIDADE */
-.quantidade button {
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
-}
-
-.quantidade span {
-    font-size: 1.1rem;
-    min-width: 30px;
-    text-align: center;
-}
-
-/* FORMULÁRIO */
-input, textarea {
-    font-size: 1rem;
-    padding: 12px;
-}
-
-textarea {
-    resize: none;
-    height: 80px;
-}
-
-/* TOTAL */
-#total {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #5a2d0c;
-}
-
-/* =========================
-   TELAS MAIORES (DESKTOP)
+   DESKTOP (TELAS MAIORES)
 ========================= */
 @media (min-width: 768px) {
+    .header {
+        padding: 30px 20px;
+    }
+    
     .header h1 {
         font-size: 2rem;
     }
 
     .produtos {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* No PC ele aumenta o número de colunas conforme o espaço */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
         padding: 30px;
     }
 
+    .card-produto {
+        padding: 15px;
+    }
+
     .card-produto img {
-        max-height: 260px;
+        height: 220px;
+    }
+
+    .card-produto h3 {
+        font-size: 1.2rem;
     }
 }
 
 /* =========================
-   MOBILE – 2 PRODUTOS POR LINHA
+   FOOTER E EXTRAS
 ========================= */
-@media (max-width: 480px) {
-    .produtos {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 12px;
-    }
-
-    .card-produto {
-        padding: 10px;
-    }
-
-    .card-produto img {
-        max-height: 140px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .card-produto h3 {
-        font-size: 0.9rem;
-    }
-
-    .card-produto p {
-        font-size: 0.75rem;
-    }
-
-    .preco {
-        font-size: 0.9rem;
-    }
-
-    .btn-adicionar {
-        font-size: 0.8rem;
-        padding: 8px;
-    }
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #777;
 }
 
+#total {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #5a2d0c;
+}
